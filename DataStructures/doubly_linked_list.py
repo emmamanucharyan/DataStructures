@@ -155,20 +155,6 @@ class DoubleLinkedList:
                 current.previous = current.previous.previous
                 current.previous.next = current
 
-    def index_of(self, obj):
-        if self.size == 0:
-            print("List is empty")
-            return
-        position = 1
-        current = self.first
-        while current != None:
-            if current.data == obj:
-                print("index is", position)
-                return position
-            position += 1
-            current = current.next
-        print("Item not found in list")
-
     def remove_by_value(self, obj):
         if self.size == 0:
             print("The list has no element to delete")
