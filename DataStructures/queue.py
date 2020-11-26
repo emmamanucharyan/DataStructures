@@ -158,36 +158,3 @@ class PriorityQueue:
             n += 1
 
         return check
-
-
-
-class ArrayQueue:
-    def __init__(self):
-        self.queue = [None, None, None, None, None, None]
-        self.first = 0
-        self.size = 0
-
-    def size(self):
-        return self.size
-
-    def isEmpty(self):
-        return self.size == 0
-
-    def empty(self):
-        self.first = 0
-        self.size = 0
-
-    def enqueue(self, obj):
-        if self.size == len(self.queue):
-            return "The queue is full. Please try later!"
-        self.queue[(self.first + self.size) % len(self.queue)] = obj
-        self.size += 1
-
-    def dequeue(self, obj):
-        if self.size == 0:
-            return "The queue is empty."
-        self.first = (self.first + 1) % len(self.queue)
-        self.size -= 1
-
-
-
