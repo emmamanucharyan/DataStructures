@@ -6,10 +6,13 @@ class Node:
 
 
 class HashMap:
+    imported_to_json = False
+
     def __init__(self, capacity):
         self.capacity = capacity
-        self.hashtable = [None] * self.capacity
+        self.hashtable = [None] * capacity
         self.size = 0
+        self.name_json = None
 
     def __iter__(self):
         for e in self.hashtable:
@@ -47,11 +50,13 @@ class HashMap:
             while tmp.next != None:
                 tmp = tmp.next
             if tmp.key == key:
-                print("Such key already exists")
+                # print("Such key already exists")
                 return
             n = Node(key, value)
             tmp.next = n
             self.size += 1
+        if HashMap.imported_to_json:
+            HashMap.update_json_file(self, self.name_json, key, value)
 
     def remove(self, key):
         if not HashMap.has_key(self, key):
@@ -77,8 +82,6 @@ class HashMap:
         if HashMap.has_key(self, key):
             HashMap.remove(self, key)
             HashMap.put(self, key, value)
-        else:
-            print("No such entry with that key")
 
     def get(self, key):
         index = self._hash(key)
@@ -129,5 +132,49 @@ class HashMap:
             if my_queue[0].next is not None:
                 my_queue.append(my_queue[0].next)
             my_queue.pop(0)
+
+    def import_to_json(self, name):
+        if not HashMap.imported_to_json:
+            import json
+            saved_data_dict = {}
+            for e in self.hashtable:
+                while e != None:
+                    saved_data_dict[e.key] = e.value
+                    e = e.next
+            x = name
+            y =".json"
+            z = x + y
+            file_2 = open(z, "w")
+            file_2.write(json.dumps(saved_data_dict, indent=2))
+            file_2.close()
+            self.name_json = name
+            HashMap.imported_to_json = True
+        else:
+            pass
+            # print("already imported")
+
+    def import_from_json(self, name):
+        for e in self.hashtable:
+            while e != None:
+                HashMap.remove(self, e.key)
+                e = e.next
+        import json
+        with open(name) as file:
+            name = json.load(file)
+            file.close()
+        for key, value in name.items():
+            self.put(key, value)
+
+    def update_json_file(self, name, key, value):
+        import json
+        x = name
+        y = ".json"
+        z = x + y
+        with open(z) as open_file:
+            name = json.load(open_file)
+        name[key] = value
+        json.dump(name, open(z, "w"), indent=2)
+        open_file.close()
+
 
 
