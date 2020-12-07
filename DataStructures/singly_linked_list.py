@@ -14,7 +14,7 @@ class SingleLinkedList:
         return self.size
 
     def get_first(self):
-        return self.first
+        return self.first.data
 
     def get_last(self):
         return self.last
@@ -131,6 +131,41 @@ class SingleLinkedList:
             current = current.next
         print("Not found in the list")
 
+
+    # def insert_at_index(self, index, data):
+    #     if index == 1:
+    #         node = Node(data)
+    #         node.next = self.first
+    #         self.first = node
+    #         self.size += 1
+    #     i = 1
+    #     current = self.first
+    #     while i < index - 1 and current is not None:
+    #         current = current.next
+    #         i = i + 1
+    #     if current is None:
+    #         print("Index out of bound")
+    #     else:
+    #         node = Node(data)
+    #         node.next = current.next
+    #         current.next = node
+    #
+    # def remove_by_index(self, index):
+    #     if index == 1:
+    #         self.first = self.first.next
+    #         self.size -= 1
+    #         return
+    #     i = 1
+    #     current = self.first
+    #     while i < index - 1 and current.next is not None:
+    #         current = current.next
+    #         i = i + 1
+    #     if index > self.size:
+    #         print("Index out of bound")
+    #     else:
+    #         current.next = current.next.next
+    #         self.size -= 1
+
     def emplty_llist(self):
         self.first.next = None
         self.last = None
@@ -165,4 +200,45 @@ class SingleLinkedList:
             n += 1
             current = current.next
         return check
+
+    def import_from_json_array(self, name):
+        while self.size > 0:
+            SingleLinkedList.remove_first(self)
+        import json
+        with open(name) as file:
+            name = json.load(file)
+        for value in name:
+            SingleLinkedList.insert_last(self, value)
+
+    def import_from_json_dictionary(self, name):
+        while self.size > 0:
+            SingleLinkedList.remove_first(self)
+        import json
+        with open(name) as file:
+            name = json.load(file)
+        for value in name.values():
+            SingleLinkedList.insert_last(self, value)
+
+    def import_to_json(self, name):
+        array = []
+        current = self.first
+        while current is not None:
+            array.append(current.data)
+            current = current.next
+        import json
+        file_2 = open(name, "w")
+        file_2.write(json.dumps(array, indent=2))
+        file_2.close()
+
+    def update_json_file(self, name, array):
+        import json
+        x = name
+        y = ".json"
+        z = x + y
+        with open(z) as open_file:
+            name = json.load(open_file)
+        name.append(array)
+        json.dump(name, open(z, "w"), indent=2)
+        open_file.close()
+
 
