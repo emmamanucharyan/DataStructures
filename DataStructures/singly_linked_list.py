@@ -205,18 +205,18 @@ class SingleLinkedList:
         while self.size > 0:
             SingleLinkedList.remove_first(self)
         import json
-        with open(name) as file:
-            name = json.load(file)
-        for value in name:
+        with open(name) as open_file:
+            file = json.load(open_file)
+        for value in file:
             SingleLinkedList.insert_last(self, value)
 
     def import_from_json_dictionary(self, name):
         while self.size > 0:
             SingleLinkedList.remove_first(self)
         import json
-        with open(name) as file:
-            name = json.load(file)
-        for value in name.values():
+        with open(name) as open_file:
+            file = json.load(open_file)
+        for value in file.values():
             SingleLinkedList.insert_last(self, value)
 
     def import_to_json(self, name):
@@ -236,9 +236,9 @@ class SingleLinkedList:
         y = ".json"
         z = x + y
         with open(z) as open_file:
-            name = json.load(open_file)
-        name.append(array)
-        json.dump(name, open(z, "w"), indent=2)
+            file = json.load(open_file)
+        file.append(array)
+        json.dump(file, open(z, "w"), indent=2)
         open_file.close()
 
 
