@@ -82,6 +82,8 @@ class HashMap:
         if HashMap.has_key(self, key):
             HashMap.remove(self, key)
             HashMap.put(self, key, value)
+        else:
+            print("No such entry with that key")
 
     def get(self, key):
         index = self._hash(key)
@@ -159,10 +161,10 @@ class HashMap:
                 HashMap.remove(self, e.key)
                 e = e.next
         import json
-        with open(name) as file:
-            name = json.load(file)
-            file.close()
-        for key, value in name.items():
+        with open(name) as open_file:
+            file = json.load(open_file)
+            open_file.close()
+        for key, value in file.items():
             self.put(key, value)
 
     def update_json_file(self, name, key, value):
@@ -171,9 +173,9 @@ class HashMap:
         y = ".json"
         z = x + y
         with open(z) as open_file:
-            name = json.load(open_file)
-        name[key] = value
-        json.dump(name, open(z, "w"), indent=2)
+            file = json.load(open_file)
+        file[key] = value
+        json.dump(file, open(z, "w"), indent=2)
         open_file.close()
 
 
