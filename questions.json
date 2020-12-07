@@ -1,0 +1,62 @@
+[
+ {
+  "Additional": null,
+  "Q": "In general, would you say your health is:",
+  "An": ["Excellent","Very good", "Good","Fair", "Poor"]
+ },
+ {
+  "Additional": "The following questions are about activities you might do during a typical day. Does your health now limit you in these activities? If so, how much?",
+  "Q": "Moderate activities, such as moving a table, pushing a vacuum cleaner, bowling, or playing golf",
+  "An": ["Yes, limited a lot", "Yes, limited a little", "No, not limited at all "]
+ },
+ {
+  "Additional": null,
+  "Q": "Climbing several flights of stairs ",
+  "An": ["Yes, limited a lot", "Yes, limited a little", "No, not limited at all"]
+ },
+ {
+  "Additional": "During the past 4 weeks, how much of the time have you had any of the following problems with your work or other regular daily activities as a result of your physical health?",
+  "Q": "Accomplished less than you would like ",
+  "An": ["All of the time", "Most of the time", "Some of the time", "A little of the time", "None of the time"]
+ },
+ {
+  "Additional": null,
+  "Q": "Were limited in the kind of work or other activities",
+  "An": ["All of the time", "Most of the time", "Some of the time", "A little of the time", "None of the time"]
+ },
+ {
+  "Additional": "During the past 4 weeks, how much of the time have you had any of the following problems with your work or other regular daily activities as a result of any emotional problems (such as feeling depressed or anxious)?",
+  "Q": "Accomplished less than you would like",
+  "An": ["All of the time", "Most of the time", "Some of the time", "A little of the time", "None of the time "]
+ },
+ {
+  "Additional": null,
+  "Q": "Did work or other activities less carefully than usual",
+  "An": ["All of the time", "Most of the time", "Some of the time", "A little of the time", "None of the time"]
+ },
+ {
+  "Additional": null,
+  "Q": "During the past 4 weeks, how much did pain interfere with your normal work (including both work outside the home and housework)?",
+  "An": ["Not at all", "A little bit", "Moderately", "Quite a bit", "Extremely"]
+ },
+ {
+  "Additional": "These questions are about how you feel and how things have been with you during the past 4 weeks. For each question, please give the one answer that comes closest to the way you have been feeling.",
+  "Q": "How much of the time during the past 4 weeks:Have you felt calm and peaceful?",
+  "An": ["All of the time", "Most of the time", "Some of the time", "A little of the time", "5)None of the time"]
+ },
+ {
+  "Additional": null,
+  "Q": "How much of the time during the past 4 weeks did you have a lot of energy?",
+  "An": ["All of the time", "Most of the time", "Some of the time", "A little of the time", "None of the time"]
+ },
+ {
+  "Additional": null,
+  "Q": "How much of the time during the past 4 weeks have you felt downhearted and depressed?",
+  "An": ["All of the time", "Most of the time", "Some of the time", "A little of the time", "None of the time"]
+ },
+ {
+  "Additional": null,
+  "Q": "During the past 4 weeks, how much of the time has your physical health or emotional problems interfered with your social activities (like visiting friends, relatives, etc.)?",
+  "An": ["All of the time", "Most of the time", "Some of the time", "A little of the time", "None of the time"]
+ }
+]
