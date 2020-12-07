@@ -130,42 +130,7 @@ class SingleLinkedList:
                 return
             current = current.next
         print("Not found in the list")
-
-
-    # def insert_at_index(self, index, data):
-    #     if index == 1:
-    #         node = Node(data)
-    #         node.next = self.first
-    #         self.first = node
-    #         self.size += 1
-    #     i = 1
-    #     current = self.first
-    #     while i < index - 1 and current is not None:
-    #         current = current.next
-    #         i = i + 1
-    #     if current is None:
-    #         print("Index out of bound")
-    #     else:
-    #         node = Node(data)
-    #         node.next = current.next
-    #         current.next = node
-    #
-    # def remove_by_index(self, index):
-    #     if index == 1:
-    #         self.first = self.first.next
-    #         self.size -= 1
-    #         return
-    #     i = 1
-    #     current = self.first
-    #     while i < index - 1 and current.next is not None:
-    #         current = current.next
-    #         i = i + 1
-    #     if index > self.size:
-    #         print("Index out of bound")
-    #     else:
-    #         current.next = current.next.next
-    #         self.size -= 1
-
+        
     def emplty_llist(self):
         self.first.next = None
         self.last = None
